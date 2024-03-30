@@ -1,0 +1,43 @@
+buttonSubmit.addEventListener('click',payFine);
+
+
+ function payFine() {
+ 
+     
+     let fineMatch = DB.find(fine => fine[`?????`] === fineNumber.value);
+     if (!fineMatch) {
+         alert("Number does not match");
+         return;
+     }
+ 
+     
+     if (fineMatch[`????`] !== parseInt(amount.value)) {
+         alert("Amount does not match");
+         return;
+     }
+ 
+     
+     let passportRegex = /^[A-Z]{2}\d{6}$/;
+     if (!passportRegex.test(passport.value)) {
+         alert("Invalid passport number");
+         return;
+     }
+ 
+     
+     let creditCardRegex = /^\d{16}$/;
+     if (!creditCardRegex.test(creditCardNumber.value)) {
+         alert("Invalid credit card number");
+         return;
+     }
+     let cvvRegex = /^\d{3}$/;
+     if (!cvvRegex.test(cvv.value)) {
+         alert("Invalid CVV");
+         return;
+     }
+ 
+     //console.log(DB);
+     DB = DB.filter(fine => fine[`?????`] !== fineMatch[`?????`]);
+     //console.log(DB);
+     //console.log("Fine successfully paid!!");
+     alert("Fine successfully paid!!");
+ }
